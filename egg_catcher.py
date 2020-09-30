@@ -75,13 +75,6 @@ def catch_check():
             increase_score(egg_score)
     win.after(100,catch_check)
 
-def increase_score(points):
-    global score , egg_speed , egg_interval
-    score += points
-    egg_speed = int(egg_speed * difficulty_factor)
-    egg_interval = int(egg_interval * difficulty_factor)
-    c.itemconfigure(score_text , text='Score : ' + str(score))
-
 def move_left(event):
     (x1,y1,x2,y2) = c.coords(catcher)
     if x1 > 0:
