@@ -64,6 +64,13 @@ def lose_a_life():
     global lives_remaning
     lives_remaning -= 1
     c.itemconfigure(lives_text , text='Lives : ' + str(lives_remaning))
+    
+def increase_score(points):
+    global score,egg_speed,egg_interval
+    score+=points
+    egg_speed=int(egg_speed*difficulty_factor)
+    egg_interval=int(egg_interval*difficulty_factor)
+    c.itemconfigure(score_text,text='Score : '+str(score))
 
 def catch_check():
     (catcher_x,catcher_y,catcher_x2,catcher_y2) = c.coords(catcher)
