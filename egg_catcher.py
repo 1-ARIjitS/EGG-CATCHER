@@ -51,7 +51,12 @@ def move_eggs():
         if egg_y2 > canvas_height:
             egg_dropped(egg)
     win.after(egg_speed,move_eggs)
-
+    
+#increase_score function was not defined 
+def increase_score(egg):
+        score+=10    #increasing score by 10 for first pass
+        c.itemconfigure(score_text,text="Score: "+str(score))   #configuring score in the canvas
+    
 def egg_dropped(egg):
     eggs.remove(egg)
     c.delete(egg)
