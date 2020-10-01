@@ -1,3 +1,4 @@
+import sys
 from itertools import cycle
 from random import randrange
 from tkinter import Tk , Canvas , messagebox , font
@@ -59,6 +60,7 @@ def egg_dropped(egg):
     if lives_remaning == 0:
         messagebox.showinfo('GAME OVER!' , 'Final Score : ' + str(score))
         win.destroy()
+        sys.exit(0)
 
 def lose_a_life():
     global lives_remaning
