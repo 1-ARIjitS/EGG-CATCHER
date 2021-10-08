@@ -67,12 +67,14 @@ def lose_a_life():
 
 def catch_check():
     (catcher_x,catcher_y,catcher_x2,catcher_y2) = c.coords(catcher)
+    global score
     for egg in eggs:
         (egg_x,egg_y,egg_x2,egg_y2) = c.coords(egg)
         if catcher_x < egg_x and egg_x2  < catcher_x2 and catcher_y2 - egg_y2 < 40:
             eggs.remove(egg)
             c.delete(egg)
-            increase_score(egg_score)
+            score += egg_score
+            c.itemconfigure(score_text, text='Score : ' + str(score))
     win.after(100,catch_check)
 
 def move_left(event):
